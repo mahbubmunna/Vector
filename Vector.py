@@ -27,8 +27,12 @@ class Vector(object):
     def __sub__(self, other):
         return tuple(map(operator.sub, self.coordinates, other.coordinates))
 
-    def __mul__(self, other):
-        return tuple(map(operator.mul, self.coordinates, other.coordinates))
+    def __mul__(self, scale_factor):
+        scaled_list = []
+        for x in self.coordinates:
+            scaled_list.append(x * scale_factor)
+
+        return tuple(scaled_list)
 
 
 if __name__ == '__main__':
